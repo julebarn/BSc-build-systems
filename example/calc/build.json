@@ -1,0 +1,36 @@
+[{"target_file_path": "./numbers.h","is_source_file": true},
+{"target_file_path": "./mult.c","is_source_file": true},
+{"target_file_path": "./calc.c","is_source_file": true},
+{"target_file_path": "./add.c","is_source_file": true},
+{"target_file_path": "./sub.c","is_source_file": true},
+{
+    "target_file_path": "./calc",
+    "Dependencies": ["./calc.o","./mult.o","./add.o","./sub.o"],
+    "docker_image": "gcc:latest",
+    "build_command": "gcc -o calc calc.o mult.o add.o sub.o",
+    "output_file_path": "./calc"
+},
+{
+    "target_file_path": "./calc.o",
+    "Dependencies": ["./numbers.h","./calc.c"],
+    "docker_image": "gcc:latest",
+    "build_command": "gcc -c calc.c -o calc.o"
+},
+{
+    "target_file_path": "./mult.o",
+    "Dependencies": ["./numbers.h","./mult.c"],
+    "docker_image": "gcc:latest",
+    "build_command": "gcc -c mult.c -o mult.o"
+},
+{
+    "target_file_path": "./add.o",
+    "Dependencies": ["./numbers.h","./add.c"],
+    "docker_image": "gcc:latest",
+    "build_command": "gcc -c add.c -o add.o"
+},
+{
+    "target_file_path": "./sub.o",
+    "Dependencies": ["./numbers.h","./sub.c"],
+    "docker_image": "gcc:latest",
+    "build_command": "gcc -c sub.c -o sub.o"
+}]
